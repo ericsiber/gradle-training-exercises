@@ -23,6 +23,9 @@ dependencies {
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:31.0.1-jre")
+    // https://mvnrepository.com/artifact/com.google.http-client/google-http-client
+    implementation("com.google.http-client:google-http-client:1.42.2")
+
 }
 
 application {
