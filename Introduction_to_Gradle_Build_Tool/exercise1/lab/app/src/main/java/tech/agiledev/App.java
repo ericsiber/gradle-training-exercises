@@ -10,13 +10,11 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 
 import java.io.IOException;
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
-    public String getUrl() {
-        // This is a small website and easily prints.
-        return "https://wiby.me/";
+    AppModel model = new AppModel();
+
+    public String getGreeting() {
+        return model.getGreeting();
     }
 
     public static void main(String[] args) throws IOException {
@@ -24,7 +22,7 @@ public class App {
         System.out.println(app.getGreeting());
 
         HttpRequestFactory requestFactory = new NetHttpTransport().createRequestFactory();
-        HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(app.getUrl()));
+        HttpRequest request = requestFactory.buildGetRequest(new GenericUrl(app.model.getUrl()));
         String rawResponse = request.execute().parseAsString();
         System.out.println("\n---------\n");
         System.out.println(rawResponse);
